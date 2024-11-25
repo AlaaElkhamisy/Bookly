@@ -1,7 +1,11 @@
+import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/app_strings.dart';
 import 'package:bookly/core/utils/app_text_styles.dart';
+import 'package:bookly/features/home/presentation/views/home_view.dart';
 import 'package:bookly/features/splash/presentation/views/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class Splash_Body extends StatefulWidget {
   const Splash_Body({super.key});
@@ -19,17 +23,15 @@ class _Splash_BodyState extends State<Splash_Body>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    animationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
-    slidingAnimation =
-        Tween<Offset>(begin: const Offset(0, 5), end: Offset.zero)
-            .animate(animationController);
-    animationController.forward();
-    // slidingAnimation.addListener(() {
-    //   setState(() {});
-    // });
+    initSlidingAnimations();
+    NavigateToHome();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    animationController.dispose();
   }
 
   @override
@@ -45,13 +47,30 @@ class _Splash_BodyState extends State<Splash_Body>
               style: AppTextStyles.appName_Style,
             ),
           ),
-          // const SizedBox(
-          //   height: 4,
-          // ),
+
           // we added animation builder because the set state update the hole splash ui i not the animated text widget
           SlidingText(slidingAnimation: slidingAnimation)
         ],
       ),
     );
+  }
+
+  void initSlidingAnimations() {
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    slidingAnimation =
+        Tween<Offset>(begin: const Offset(0, 5), end: Offset.zero)
+            .animate(animationController);
+    animationController.forward();
+    // slidingAnimation.addListener(() {
+    //   setState(() {});
+    // });
+  }
+
+  void NavigateToHome() {
+    Future.delayed(const Duration(seconds: 2), () {
+      Get.to(() => const Home_View(),
+          transition: Transition.fade, duration: TransitionDuration);
+    });
   }
 }
