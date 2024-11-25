@@ -11,20 +11,23 @@ class Custom_App_Bar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            AppStrings.appName,
-            style: AppTextStyles.appName_Style.copyWith(fontSize: 20),
-          ),
-          IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                FontAwesomeIcons.magnifyingGlass,
-                size: 25,
-              ))
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              AppStrings.appName,
+              style: AppTextStyles.appName_Style.copyWith(fontSize: 20),
+            ),
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  FontAwesomeIcons.magnifyingGlass,
+                  size: 25,
+                ))
+          ],
+        ),
       ),
     );
   }
