@@ -9,6 +9,7 @@ class Splash_Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
@@ -16,6 +17,13 @@ class Splash_Body extends StatelessWidget {
               AppStrings.appName,
               style: AppTextStyles.appName_Style,
             ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            "Read free books",
+            textAlign: TextAlign.center,
           )
         ],
       ),
