@@ -28,16 +28,38 @@ class Best_Seller_ListView extends StatelessWidget {
               width: 30,
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.5,
-                  child: const Text(
+                  child: Text(
                     maxLines: 2,
                     //put points show that there are hide words
                     overflow: TextOverflow.ellipsis,
                     "Harry Potter and the Goblet of Fire",
-                    style: AppTextStyles.text_Style20,
+                    style: AppTextStyles.text_Style20
+                        .copyWith(fontFamily: "GT-Sectra-Fine"),
                   ),
+                ),
+                const SizedBox(
+                  width: 3,
+                ),
+                Text(
+                  "J.K. Rowling",
+                  style: AppTextStyles.text_Style14.copyWith(
+                      color: const Color.fromARGB(255, 158, 158, 158)),
+                ),
+                const SizedBox(
+                  width: 3,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "19.99 €",
+                      style: AppTextStyles.text_Style20
+                          .copyWith(fontWeight: FontWeight.bold),
+                    )
+                  ],
                 )
               ],
             )
