@@ -6,4 +6,10 @@ abstract class AppTextStyles {
       // color: Colors.white,
       fontFamily: "Pacifico",
       fontWeight: FontWeight.bold);
+
+  static const primaryText_Style = TextStyle(
+      fontSize: 23,
+      // color: Colors.white,
+
+      fontWeight: FontWeight.w600);
 }
