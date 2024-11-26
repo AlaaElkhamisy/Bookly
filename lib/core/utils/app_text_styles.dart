@@ -13,8 +13,10 @@ abstract class AppTextStyles {
   static const text_Style14 =
       TextStyle(fontSize: 14, fontWeight: FontWeight.normal);
 
-  static const text_Style20 =
-      TextStyle(fontSize: 20, fontWeight: FontWeight.normal);
+  static const text_Style20 = TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.normal,
+      fontFamily: "GT-Sectra-Fine");
 
   static const text_Style16 =
       TextStyle(fontSize: 16, fontWeight: FontWeight.w500);
