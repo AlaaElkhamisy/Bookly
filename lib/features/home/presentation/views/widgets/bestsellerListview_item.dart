@@ -44,7 +44,7 @@ class Best_Seller_ListView_item extends StatelessWidget {
                         maxLines: 2,
                         //put points show that there are hide words
                         overflow: TextOverflow.ellipsis,
-                        "Harry Potter and the Goblet of Fire",
+                        "The Jungle Book",
                         style: AppTextStyles.text_Style20
                             .copyWith(fontFamily: "GT-Sectra-Fine"),
                       ),
