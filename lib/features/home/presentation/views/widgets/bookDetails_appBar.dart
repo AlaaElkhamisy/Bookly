@@ -11,7 +11,7 @@ class BookDetails_AppBar extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(
               Icons.close,
-              size: 35,
+              size: 28,
               color: Colors.white,
             )),
         const Spacer(),
@@ -19,7 +19,7 @@ class BookDetails_AppBar extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(
               Icons.shopping_cart_outlined,
-              size: 35,
+              size: 28,
               color: Colors.white,
             ))
       ],
