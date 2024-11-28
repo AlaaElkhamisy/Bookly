@@ -25,8 +25,8 @@ class Box_Action extends StatelessWidget {
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(16),
                 bottomRight: Radius.circular(16)),
-            text: 'Free Review',
-            fontSize: 18,
+            text: 'Free preview',
+            fontSize: 16,
           ))
         ],
       ),
