@@ -53,7 +53,7 @@ class Best_Seller_ListView_item extends StatelessWidget {
                       width: 3,
                     ),
                     Text(
-                      "J.K. Rowling",
+                      "Rudyard Kipling",
                       style: AppTextStyles.text_Style14.copyWith(
                           color: const Color.fromARGB(255, 158, 158, 158)),
                     ),
