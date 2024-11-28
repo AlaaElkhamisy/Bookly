@@ -8,6 +8,7 @@ class BookDetails_AppBar extends StatelessWidget {
     return Row(
       children: [
         IconButton(
+            padding: EdgeInsets.zero,
             onPressed: () {},
             icon: const Icon(
               Icons.close,
@@ -16,6 +17,7 @@ class BookDetails_AppBar extends StatelessWidget {
             )),
         const Spacer(),
         IconButton(
+            padding: EdgeInsets.zero,
             onPressed: () {},
             icon: const Icon(
               Icons.shopping_cart_outlined,

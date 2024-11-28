@@ -19,8 +19,7 @@ abstract class AppTextStyles {
   static const text_Style14 =
       TextStyle(fontSize: 14, fontWeight: FontWeight.normal);
 
-  static const text_Style20 = TextStyle(
-      fontSize: 20, fontWeight: FontWeight.normal, color: Colors.white);
+  static const text_Style20 = TextStyle(fontSize: 20, color: Colors.white);
 
   static const text_Style16 =
       TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: Colors.white);
