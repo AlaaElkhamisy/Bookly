@@ -7,4 +7,6 @@ abstract class HomeRepo {
   // in the left side we called failure class because in the app beginning we don't know types of failure which may occure so every failure appear we can add it in the failure class which directly handled in either widget
   Future<Either<Failures, List<BookModel>>> fetchBestSellerBooks();
   Future<Either<Failures, List<BookModel>>> fetchFeaturedBooks();
+  Future<Either<Failures, List<BookModel>>> fetchSimilarBooks(
+      {required String category});
 }
