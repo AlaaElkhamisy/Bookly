@@ -11,6 +11,7 @@ class Home_Body extends StatelessWidget {
   Widget build(BuildContext context) {
     //CustomScrollView is used for nested scroll views
     return const CustomScrollView(
+      physics: BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
             child: Column(
