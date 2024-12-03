@@ -1,23 +1,41 @@
+import 'package:bookly/core/widgets/custom_error.dart';
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/bestsellerListview_item.dart';
+import 'package:bookly/features/search/presentation/views_model/cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Search_Result extends StatelessWidget {
-  const Search_Result({super.key});
-
+  const Search_Result({super.key, required this.books});
+  final BookModel books;
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      // i tell listView to take the height of its children
-      shrinkWrap: true,
-      //here we tell listView to not scroll because the customScrollView will scroll instead
-      //physics: const NeverScrollableScrollPhysics(),
-      padding: EdgeInsets.zero,
-      itemCount: 10,
-      itemBuilder: (BuildContext context, int index) {
-        return const Padding(
-            padding: EdgeInsets.only(bottom: 20), child: Text("data")
-            //Best_Seller_ListView_item(),
-            );
+    return BlocBuilder<SearchCubit, SearchState>(
+      builder: (context, state) {
+        if (state is SearchSuccess) {
+          return ListView.builder(
+            // i tell listView to take the height of its children
+            shrinkWrap: true,
+            //here we tell listView to not scroll because the customScrollView will scroll instead
+            //physics: const NeverScrollableScrollPhysics(),
+            padding: EdgeInsets.zero,
+            itemCount: state.bookModel.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: Best_Seller_ListView_item(
+                  bookModel: books,
+                ),
+              );
+            },
+          );
+        } else if (state is SearchFailure) {
+          return CustomError(errMessage: state.errMessage);
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
       },
     );
   }
