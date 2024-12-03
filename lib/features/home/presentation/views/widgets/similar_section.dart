@@ -22,10 +22,7 @@ class Similar_Section extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        const Padding(
-          padding: EdgeInsets.only(left: 30),
-          child: Similar_Book_List_View(),
-        )
+        const Similar_Book_List_View(),
       ],
     );
   }

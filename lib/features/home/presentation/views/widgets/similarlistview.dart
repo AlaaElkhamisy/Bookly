@@ -1,8 +1,10 @@
+import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/widgets/custom_error.dart';
 import 'package:bookly/features/home/presentation/view_models/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookly/features/home/presentation/views/widgets/customBookImage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class Similar_Book_List_View extends StatelessWidget {
   const Similar_Book_List_View({super.key});
@@ -15,13 +17,22 @@ class Similar_Book_List_View extends StatelessWidget {
           return SizedBox(
             height: MediaQuery.of(context).size.height * 0.15,
             child: ListView.builder(
+              padding: const EdgeInsets.only(left: 30),
               scrollDirection: Axis.horizontal,
+              itemCount: state.books.length,
               itemBuilder: (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.only(left: 8),
-                  child: Custom_Book_Image(
-                    imageUrl:
-                        "https://i.harperapps.com/hcanz/covers/9781460763650/x293.jpg",
+                return Padding(
+                  padding: const EdgeInsets.only(left: 8),
+                  child: GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.Book_Details_Page,
+                          extra: state.books[index]);
+                    },
+                    child: Custom_Book_Image(
+                      imageUrl: state
+                              .books[index].volumeInfo.imagelinkes?.thumbnail ??
+                          "",
+                    ),
                   ),
                 );
               },

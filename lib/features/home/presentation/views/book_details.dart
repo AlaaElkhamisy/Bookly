@@ -22,7 +22,7 @@ class _Book_Details_ViewState extends State<Book_Details_View> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Book_Details_Body(),
+      body: Book_Details_Body(bookModel: widget.bookModel),
     );
   }
 }
