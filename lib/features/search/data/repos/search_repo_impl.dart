@@ -13,7 +13,8 @@ class SearchRepoImpl extends SearchRepo {
       {required String title}) async {
     try {
       var data = await apiService.get(
-          endPoint: "volumes?Filtering=free-ebooks&q=$title");
+          endPoint:
+              "volumes?Filtering=free-ebooks&q=title:$title&Sorting=relevance");
       List<BookModel> books = [];
       //in this for loop i told it to go to Map data and go to items , then return data as BookModel
       if (data["items"] != null) {

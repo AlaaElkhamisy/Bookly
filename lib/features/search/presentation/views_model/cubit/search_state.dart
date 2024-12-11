@@ -10,9 +10,9 @@ sealed class SearchState extends Equatable {
 class SearchInitial extends SearchState {}
 
 class SearchSuccess extends SearchState {
-  final List<BookModel> bookModel;
+  final List<BookModel> matchBooks;
 
-  const SearchSuccess(this.bookModel);
+  const SearchSuccess(this.matchBooks);
 }
 
 class SearchLoading extends SearchState {}

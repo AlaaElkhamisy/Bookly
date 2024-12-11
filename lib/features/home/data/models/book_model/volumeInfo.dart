@@ -5,7 +5,7 @@ import 'package:bookly/features/home/data/models/book_model/reading_modes.dart';
 import 'package:equatable/equatable.dart';
 
 class Volume_Info extends Equatable {
-  final String title;
+  final String? title;
   final List<String>? authors;
   final String? publisher;
   final String? publishedDate;
@@ -45,10 +45,10 @@ class Volume_Info extends Equatable {
       this.panelizationSummary,
       this.readingModes,
       this.industryIdentifiers,
-      required this.title});
+      this.title});
 
   factory Volume_Info.fromJson(Map<String, dynamic> json) => Volume_Info(
-      title: json["title"] as String,
+      title: json["title"] as String?,
       authors: (json["authors"] as List<dynamic>?)?.cast<String>(),
       publisher: json["publisher"] as String?,
       publishedDate: json["publishedDate"] as String?,

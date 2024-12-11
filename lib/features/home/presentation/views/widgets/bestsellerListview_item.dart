@@ -46,7 +46,10 @@ class Best_Seller_ListView_item extends StatelessWidget {
                       width: 3,
                     ),
                     Text(
-                      bookModel.volumeInfo.authors![0],
+                      bookModel.volumeInfo.authors != null &&
+                              bookModel.volumeInfo.authors!.isNotEmpty
+                          ? bookModel.volumeInfo.authors![0]
+                          : 'Unknown Author',
                       style: AppTextStyles.text_Style14.copyWith(
                           color: const Color.fromARGB(255, 158, 158, 158)),
                     ),

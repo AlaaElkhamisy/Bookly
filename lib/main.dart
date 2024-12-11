@@ -24,12 +24,12 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => FeaturedBooksCubitCubit(
             getIt.get<HomeRepoImpl>(),
-            // here we used to points to tell the bloc provider to execute this code after you build this copy of cubit
           )..fetchFeaturedBooks(),
         ),
         BlocProvider(
-          create: (context) => BestSellerBooksCubit(getIt.get<HomeRepoImpl>())
-            ..fetchBestSellerBooks(),
+          create: (context) => BestSellerBooksCubit(
+            getIt.get<HomeRepoImpl>(),
+          )..fetchBestSellerBooks(),
         ),
       ],
       child: MaterialApp.router(

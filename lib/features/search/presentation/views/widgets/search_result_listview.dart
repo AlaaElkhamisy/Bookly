@@ -1,13 +1,14 @@
 import 'package:bookly/core/widgets/custom_error.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widgets/bestsellerListview_item.dart';
 import 'package:bookly/features/search/presentation/views_model/cubit/search_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Search_Result extends StatelessWidget {
-  const Search_Result({super.key, required this.books});
-  final BookModel books;
+  const Search_Result({
+    super.key,
+  });
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SearchCubit, SearchState>(
@@ -19,12 +20,12 @@ class Search_Result extends StatelessWidget {
             //here we tell listView to not scroll because the customScrollView will scroll instead
             //physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
-            itemCount: state.bookModel.length,
+            itemCount: state.matchBooks.length,
             itemBuilder: (BuildContext context, int index) {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 20),
                 child: Best_Seller_ListView_item(
-                  bookModel: books,
+                  bookModel: state.matchBooks[index],
                 ),
               );
             },
@@ -33,7 +34,7 @@ class Search_Result extends StatelessWidget {
           return CustomError(errMessage: state.errMessage);
         } else {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: Text("Search for Books"),
           );
         }
       },
